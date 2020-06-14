@@ -1,1 +1,1 @@
-FROM boinc/server_mysql:4.0.1-b2d
+FROM boinc/server_mysql:4.0.1-b2d@sha256:e6744622431e511a6d1009370cd75fdad239a755a8d41afdfd38f9b156c83e24
