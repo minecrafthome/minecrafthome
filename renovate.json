@@ -1,0 +1,14 @@
+{
+  "enabled": "true",
+  "extends": [":assignee(chipwolf)", "config:base"],
+  "includeForks": "true",
+  "masterIssue": "true",
+  "masterIssueAutoclose": "true",
+  "packageRules": [
+    {
+      "automerge": "true", 
+      "updateTypes": ["digest", "minor", "patch", "pin"]
+    }
+  ],
+  "pinDigests": "true"
+}
