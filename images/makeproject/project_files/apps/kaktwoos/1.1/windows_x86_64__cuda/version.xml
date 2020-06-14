@@ -1,0 +1,16 @@
+<version>
+  <file>
+    <physical_name>wrapper_26016_windows_x86_64.exe</physical_name>
+    <main_program/>
+  </file>
+  <file>
+    <physical_name>kaktwoos_1.1_cuda.exe</physical_name>
+    <logical_name>client</logical_name>
+  </file>
+  <file>
+    <physical_name>kaktwoos_1.1_cuda_job.xml</physical_name>
+    <logical_name>job.xml</logical_name>
+  </file>
+  <needs_network/>
+  <is_wrapper/>
+</version>
