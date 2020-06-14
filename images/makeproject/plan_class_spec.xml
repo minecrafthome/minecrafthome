@@ -1,0 +1,7 @@
+<plan_classes>
+    <plan_class>
+        <name>cuda</name>
+        <gpu_type>nvidia</gpu_type>
+        <cuda/>
+    </plan_class>
+</plan_classes>

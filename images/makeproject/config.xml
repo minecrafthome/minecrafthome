@@ -1,0 +1,127 @@
+<?xml version="1.0" ?>
+<boinc>
+    <config>
+        <upload_dir>/home/boincadm/project/upload</upload_dir>
+        <disable_account_creation_rpc>0</disable_account_creation_rpc>
+        <send_result_abort>1</send_result_abort>
+        <long_name>${project}</long_name>
+        <sched_debug_level>3</sched_debug_level>
+        <cache_md5_info>1</cache_md5_info>
+        <upload_url>${url_base}/${project}_cgi/file_upload_handler</upload_url>
+        <disable_account_creation>0</disable_account_creation>
+        <uldl_dir_fanout>1024</uldl_dir_fanout>
+        <disable_web_account_creation>0</disable_web_account_creation>
+        <download_url>${url_base}/${project}/download</download_url>
+        <db_user>root</db_user>
+        <log_dir>/home/boincadm/project/log_${project}</log_dir>
+        <enable_delete_account>0</enable_delete_account>
+        <app_dir>/home/boincadm/project/apps</app_dir>
+        <download_dir>/home/boincadm/project/download</download_dir>
+        <fuh_debug_level>3</fuh_debug_level>
+        <master_url>${url_base}/${project}/</master_url>
+        <host>${project}</host>
+        <db_name>${project}</db_name>
+        <shmem_key>0x1111930f</shmem_key>
+        <show_results>1</show_results>
+        <key_dir>/home/boincadm/project/keys/</key_dir>
+        <dont_generate_upload_certificates>1</dont_generate_upload_certificates>
+        <enable_privacy_by_default>0</enable_privacy_by_default>
+        <enable_login_mustagree_termsofuse>0</enable_login_mustagree_termsofuse>
+        <ignore_upload_certificates>1</ignore_upload_certificates>
+        <db_passwd>${db_passwd}</db_passwd>
+        <min_sendwork_interval>6</min_sendwork_interval>
+        <db_host>mysql</db_host>
+        <daily_result_quota>500</daily_result_quota>
+        <one_result_per_user_per_wu/>
+        <max_wus_in_progress>1</max_wus_in_progress>
+    </config>
+    <tasks>
+        <task>
+            <cmd>antique_file_deleter -d 2</cmd>
+            <period>24 hours</period>
+            <disabled>0</disabled>
+            <output>antique_file_deleter.out</output>
+        </task>
+        <task>
+            <cmd>db_dump -d 2 --dump_spec ../db_dump_spec.xml</cmd>
+            <period>24 hours</period>
+            <disabled>1</disabled>
+            <output>db_dump.out</output>
+        </task>
+        <task>
+            <cmd>run_in_ops ./update_uotd.php</cmd>
+            <period>1 days</period>
+            <disabled>0</disabled>
+            <output>update_uotd.out</output>
+        </task>
+        <task>
+            <cmd>run_in_ops ./update_forum_activities.php</cmd>
+            <period>1 hour</period>
+            <disabled>0</disabled>
+            <output>update_forum_activities.out</output>
+        </task>
+        <task>
+            <cmd>update_stats</cmd>
+            <period>1 days</period>
+            <disabled>0</disabled>
+            <output>update_stats.out</output>
+        </task>
+        <task>
+            <cmd>run_in_ops ./update_profile_pages.php</cmd>
+            <period>24 hours</period>
+            <disabled>0</disabled>
+            <output>update_profile_pages.out</output>
+        </task>
+        <task>
+            <cmd>run_in_ops ./team_import.php</cmd>
+            <period>24 hours</period>
+            <disabled>1</disabled>
+            <output>team_import.out</output>
+        </task>
+        <task>
+            <cmd>run_in_ops ./notify.php</cmd>
+            <period>24 hours</period>
+            <disabled>0</disabled>
+            <output>notify.out</output>
+        </task>
+        <task>
+            <cmd>run_in_ops ./badge_assign.php</cmd>
+            <period>24 hours</period>
+            <disabled>0</disabled>
+            <output>badge_assign.out</output>
+        </task>
+        <task>
+            <cmd>run_in_ops ./delete_expired_tokens.php</cmd>
+            <period>24 hours</period>
+            <disabled>0</disabled>
+            <output>delete_expired_tokens.out</output>
+        </task>
+        <task>
+            <cmd>run_in_ops ./delete_expired_users_and_hosts.php</cmd>
+            <period>24 hours</period>
+            <disabled>0</disabled>
+            <output>delete_expired_users_and_hosts.out</output>
+        </task>
+    </tasks>
+    <daemons>
+        <daemon>
+            <cmd>feeder -d 3</cmd>
+        </daemon>
+        <daemon>
+            <cmd>transitioner -d 3</cmd>
+        </daemon>
+        <daemon>
+            <cmd>file_deleter -d 3</cmd>
+        </daemon>
+        <daemon>
+            <cmd>make_work --wu_name test_nodelete --cushion 10</cmd>
+            <pid_file>test</pid_file>
+            <output>test</output>
+        </daemon>
+        <daemon>
+            <cmd>make_work --wu_name main_nodelete --cushion 10</cmd>
+            <pid_file>main</pid_file>
+            <output>main</output>
+        </daemon>
+    </daemons>
+</boinc>
