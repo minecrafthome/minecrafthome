@@ -1,4 +1,4 @@
-FROM boinc/server_makeproject:4.0.1-b2d
+FROM boinc/server_makeproject:4.0.1-b2d@sha256:fc3ffb9dfcb01e47146056ef47d400d1b237b3f561a606f6d441fbca27999427
 
 # Copy our version into image
 COPY makeproject-step2.sh /usr/local/bin/
