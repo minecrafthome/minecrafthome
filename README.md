@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/minecrafthome/branding/master/social/github-readme.png)
+
 The Minecraft@Home server
 =========================
 
