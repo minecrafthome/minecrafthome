@@ -67,12 +67,14 @@ yes | bin/update_versions
 #bin/create_work --appname kaktwoos --wu_template templates/test_in --result_template templates/test_out -wu_name test_nodelete
 #bin/create_work --appname kaktwoos --wu_template templates/main_in --result_template templates/main_out -wu_name main_nodelete
 
-while read line; do for i in {0..2817}; do #2817 in prod
+for i in {0..100}; do while read line; do #2817 in prod
+  wu_name="$(printf "%04d\n" $i)_$(echo $line | cut -d' ' -f1)"
+  echo "create_work: ${wu_name}"
   bin/create_work --appname kaktwoos \
     --wu_template templates/seeds_in \
     --result_template templates/seeds_out \
     --command_line "${i}00000000000 $((i + 1))00000000000 $line" \
-    --wu_name "$(printf "%04d\n" $i)_$(echo $line | cut -d' ' -f1)"
-done; done <<< "$(cat seeds.txt)"
+    --wu_name "${wu_name}"
+done <<< "$(cat seeds.txt | cut -d' ' -f1-6)"; done
 
 touch $PROJECT_ROOT/.built_${PROJECT}
