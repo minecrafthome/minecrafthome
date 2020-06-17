@@ -8,4 +8,4 @@ RUN rm -rf $PROJECT_ROOT/apps/boinc2docker
 
 COPY --chown=1000 seeds.txt config.xml project.xml plan_class_spec.xml $PROJECT_ROOT/
 COPY --chown=1000 project_files $PROJECT_ROOT
-COPY --chown=1000 html/project/. $PROJECT_ROOT/html/project/
+COPY --chown=1000 html/. $PROJECT_ROOT/html/
