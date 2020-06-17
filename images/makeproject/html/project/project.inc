@@ -27,10 +27,10 @@ define("LANGUAGE_FILE", "languages.txt");
 
 //-------------- contact info
 
-define("SYS_ADMIN_EMAIL", "mcathome@hrznstudio.com");
-define("UOTD_ADMIN_EMAIL", "mcathome@hrznstudio.com");
+define("SYS_ADMIN_EMAIL", "boinc@hrznstudio.com");
+define("UOTD_ADMIN_EMAIL", "boinc@hrznstudio.com");
     // who gets emails about user of the day pool running low?
-define("POST_REPORT_EMAILS", "mcathome@hrznstudio.com");
+define("POST_REPORT_EMAILS", "boinc@hrznstudio.com");
     // Email addresses separated by pipe ( | ) that will receive user reports
     // of offensive forum posts.
 
@@ -96,18 +96,12 @@ function make_php_mailer() {
     //$mail->Mailer = 'smtp';
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = "tls";
-    $mail->Host = "smtp.gmail.com";
+    $mail->Host = "smtp.sendgrid.net";
     $mail->Port = 587;
-    $mail->Username = "hello@chipwolf.uk";
-    $mail->Password = "xxx";
-        // Google's application-specific password,
-        // if you are using the 2-Step Verification: 16 characters, no spaces.
-        // OR: Put here the regular Gmail password if you are not using the
-        // 2-Step Verification with your Gmail account.
-        // See https://support.google.com/accounts/answer/185833?hl=en";
-    $mail->SetFrom('mcathome@hrznstudio.com', 'Minecraft@Home');
-    $mail->AddReplyTo("mcathome@hrznstudio.com", "Minecraft@Home");
-    $mail->From = "admin@boincproject.com";
+    $mail->Username = "apikey";
+    $mail->Password = "${MAILPASS}";
+    $mail->SetFrom('no-reply@minecraftathome.com', 'Minecraft@Home');
+    $mail->From = "boinc@em9920.minecraftathome.com";
     return $mail;
 }
 }
