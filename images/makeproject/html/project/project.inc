@@ -141,21 +141,14 @@ function project_footer($show_return, $show_date, $prefix) {
 // Authorize access to administrative pages.
 // You can check for login, IP address, or whatever you want.
 //
-function auth_ops_example() {
+function auth_ops() {
     // if running from cmdline, skip checks
     //
     if (!$_SERVER['REMOTE_ADDR']) {
         return;
     }
 
-    // example: require login as a particular user (id 1 in this case)
-    //
-    if (0) {
-        auth_ops_userid(array(1));
-        return;
-    }
-
-    // example: require that logged-in user have ADMIN or DEV flags
+    // require that logged-in user have ADMIN or DEV flags
     // set in their forum_prefs.privilege
     //
     if (0) {
