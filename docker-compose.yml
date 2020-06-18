@@ -7,6 +7,21 @@ volumes:
   secrets:
 
 services:
+  traefik:
+    image: "traefik:v2.2"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
   mysql:
     build: 
       context: images/mysql
@@ -42,8 +57,18 @@ services:
       - "secrets:/run/secrets"
       - "/dev/null:/run/secrets/keys/code_sign_private"
       - "/var/run/docker.sock:/var/run/docker.sock"
-    ports: 
-      - "80:80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.home.addprefix.prefix=/minecrafthome"
+      - "traefik.http.routers.home.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.home.entrypoints=web"
+      - "traefik.http.routers.home.middlewares=home@docker"
+      - "traefik.http.routers.local.rule=PathPrefix(`/minecrafthome`)"
+      - "traefik.http.routers.local.entrypoints=web"
+      - "traefik.http.middlewares.ops.addprefix.prefix=/minecrafthome_ops"
+      - "traefik.http.routers.ops.rule=PathPrefix(`/ops`)"
+      - "traefik.http.routers.ops.entrypoints=web"
+      - "traefik.http.routers.ops.middlewares=ops@docker"
     tty: true
     environment:
       - URL_BASE
