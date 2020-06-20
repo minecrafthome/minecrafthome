@@ -83,7 +83,7 @@ while [ $i -lt 524300 ]; do
     --wu_template templates/seeds_in \
     --result_template templates/seeds_out \
     --command_line "$i $((i + 500))" \
-    --wu_name "pano_1.01_$i"; i=$((i + 500))
+    --wu_name "pano_1.02_$i"; i=$((i + 500))
 done
 
 touch $PROJECT_ROOT/.built_${PROJECT}
