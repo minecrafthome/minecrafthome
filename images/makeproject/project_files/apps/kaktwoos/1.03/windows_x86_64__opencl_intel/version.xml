@@ -1,14 +1,14 @@
 <version>
   <file>
-    <physical_name>wrapper_26014_x86_64-pc-linux-gnu</physical_name>
+    <physical_name>wrapper_26016_windows_x86_64.exe</physical_name>
     <main_program/>
   </file>
   <file>
-    <physical_name>kaktwoos_1.02_opencl</physical_name>
+    <physical_name>kaktwoos_1.03_opencl.exe</physical_name>
     <logical_name>client</logical_name>
   </file>
   <file>
-    <physical_name>kaktwoos_1.02_opencl_job.xml</physical_name>
+    <physical_name>kaktwoos_1.03_opencl_job.xml</physical_name>
     <logical_name>job.xml</logical_name>
   </file>
   <needs_network/>
