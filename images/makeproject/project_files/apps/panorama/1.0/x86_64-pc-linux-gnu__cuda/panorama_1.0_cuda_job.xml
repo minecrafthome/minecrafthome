@@ -1,9 +1,0 @@
-<job_desc>
-    <task>
-        <application>client</application>
-        <command_line>0 </command_line>
-        <exec_dir>$PROJECT_DIR</exec_dir>
-        <multi_process/>
-        <append_cmdline_args/>
-    </task>
-</job_desc>
