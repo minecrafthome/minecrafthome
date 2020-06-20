@@ -1,7 +1,7 @@
 <job_desc>
     <task>
         <application>client</application>
-        <command_line>0 </command_line>
+        <command_line>--device $GPU_DEVICE_NUM </command_line>
         <exec_dir>$PROJECT_DIR</exec_dir>
         <multi_process/>
         <append_cmdline_args/>
