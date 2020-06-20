@@ -5,8 +5,12 @@
         <cuda/>
     </plan_class>
     <plan_class>
-        <name>opencl</name>
+        <name>opencl_amd_gpu</name>
         <gpu_type>amd</gpu_type>
-        <cuda/>
+        <opencl/>
+    </plan_class>
+        <name>opencl_intel_gpu</name>
+        <gpu_type>intel</gpu_type>
+         <opencl/>
     </plan_class>
 </plan_classes>
