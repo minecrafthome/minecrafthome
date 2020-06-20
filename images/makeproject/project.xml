@@ -5,11 +5,23 @@
         <user_friendly_name>Microsoft Windows running on an AMD x86_64 or Intel EM64T CPU</user_friendly_name>
     </platform>
     <platform>
+        <name>x86_64-pc-linux-gnu</name>
+        <user_friendly_name>Linux running on an AMD x86_64 or Intel EM64T CPU</user_friendly_name>
+    </platform>
+    <platform>
+        <name>x86_64-apple-darwin</name>
+        <user_friendly_name>Intel 64-bit Mac OS 10.5 or later</user_friendly_name>
+    </platform>
+    <platform>
         <name>anonymous</name>
         <user_friendly_name>anonymous</user_friendly_name>
     </platform>
     <app>
         <name>kaktwoos</name>
         <user_friendly_name>Multichunk population seed cactus stacking</user_friendly_name>
+    </app>
+    <app>
+        <name>panorama</name>
+        <user_friendly_name>Main menu panorama seed scanning</user_friendly_name>
     </app>
 </boinc>

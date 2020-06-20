@@ -114,14 +114,14 @@
             <cmd>file_deleter -d 3</cmd>
         </daemon>
         <daemon>
-            <cmd>make_work --wu_name test_nodelete --cushion 10</cmd>
-            <pid_file>test</pid_file>
-            <output>test</output>
+            <cmd>sample_substr_validator --app kaktwoos --min_wu_id 5768 --stderr_string "Finished work unit"</cmd>
+            <pid_file>kaktwoos</pid_file>
+            <output>kaktwoos</output>
         </daemon>
         <daemon>
-            <cmd>make_work --wu_name main_nodelete --cushion 10</cmd>
-            <pid_file>main</pid_file>
-            <output>main</output>
+            <cmd>sample_substr_validator --app panorama --stderr_string "Finished work unit"</cmd>
+            <pid_file>panorama</pid_file>
+            <output>panorama</output>
         </daemon>
     </daemons>
 </boinc>

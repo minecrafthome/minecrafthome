@@ -1,0 +1,16 @@
+<version>
+  <file>
+    <physical_name>wrapper_26014_x86_64-apple-darwin</physical_name>
+    <main_program/>
+  </file>
+  <file>
+    <physical_name>panorama_1.0_cuda</physical_name>
+    <logical_name>client</logical_name>
+  </file>
+  <file>
+    <physical_name>panorama_1.0_cuda_job.xml</physical_name>
+    <logical_name>job.xml</logical_name>
+  </file>
+  <needs_network/>
+  <is_wrapper/>
+</version>
