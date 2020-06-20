@@ -4,4 +4,14 @@
         <gpu_type>nvidia</gpu_type>
         <cuda/>
     </plan_class>
+    <plan_class>
+        <name>opencl_amd</name>
+        <gpu_type>amd</gpu_type>
+        <opencl/>
+    </plan_class>
+    <plan_class>
+        <name>opencl_intel</name>
+        <gpu_type>intel</gpu_type>
+        <opencl/>
+    </plan_class>
 </plan_classes>
