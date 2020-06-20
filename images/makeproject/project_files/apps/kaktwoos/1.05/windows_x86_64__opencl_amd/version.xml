@@ -4,11 +4,11 @@
     <main_program/>
   </file>
   <file>
-    <physical_name>kaktwoos_1.04_opencl.exe</physical_name>
+    <physical_name>kaktwoos_1.05_opencl.exe</physical_name>
     <logical_name>client</logical_name>
   </file>
   <file>
-    <physical_name>kaktwoos_1.04_opencl_job.xml</physical_name>
+    <physical_name>kaktwoos_1.05_opencl_job.xml</physical_name>
     <logical_name>job.xml</logical_name>
   </file>
   <needs_network/>
