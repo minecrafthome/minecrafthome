@@ -14,4 +14,9 @@
         <gpu_type>intel</gpu_type>
         <opencl/>
     </plan_class>
+    <plan_class>
+        <name>opencl_nvidia</name>
+        <gpu_type>nvidia</gpu_type>
+        <opencl/>
+    </plan_class>
 </plan_classes>
