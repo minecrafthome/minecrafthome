@@ -78,12 +78,12 @@ yes | bin/update_versions
 #done <<< "$(cat seeds.txt | cut -d' ' -f1-6)"; done
 
 i=0
-while [ $i -lt 524300 ]; do
+while [ $i -lt 131072 ]; do
   bin/create_work --appname panorama \
     --wu_template templates/seeds_in \
     --result_template templates/seeds_out \
-    --command_line "$i $((i + 500))" \
-    --wu_name "pano_1.02_$i"; i=$((i + 500))
+    --command_line "$i $((i + 512))" \
+    --wu_name "pano_1.03_$i"; i=$((i + 512))
 done
 
 touch $PROJECT_ROOT/.built_${PROJECT}

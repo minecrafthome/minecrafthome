@@ -4,11 +4,11 @@
     <main_program/>
   </file>
   <file>
-    <physical_name>panorama_1.02_cuda.exe</physical_name>
+    <physical_name>panorama_1.03_cuda.exe</physical_name>
     <logical_name>client</logical_name>
   </file>
   <file>
-    <physical_name>panorama_1.02_cuda_job.xml</physical_name>
+    <physical_name>panorama_1.03_cuda_job.xml</physical_name>
     <logical_name>job.xml</logical_name>
   </file>
   <needs_network/>
