@@ -34,9 +34,9 @@
         <daily_result_quota>500</daily_result_quota>
         <one_result_per_user_per_wu/>
         <one_result_per_host_per_wu/>
-        <max_wus_in_progress>1</max_wus_in_progress>
-        <max_wus_in_progress_gpu>1</max_wus_in_progress_gpu>
-        <max_wus_to_send>1</max_wus_to_send>
+        <max_wus_in_progress>8</max_wus_in_progress>
+        <max_wus_in_progress_gpu>8</max_wus_in_progress_gpu>
+        <max_wus_to_send>8</max_wus_to_send>
     </config>
     <tasks>
         <task>
