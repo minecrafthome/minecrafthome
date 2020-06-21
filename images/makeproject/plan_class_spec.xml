@@ -11,7 +11,7 @@
     </plan_class>
     <plan_class>
         <name>opencl_intel</name>
-        <gpu_type>intel</gpu_type>
+        <gpu_type>intel_gpu</gpu_type>
         <opencl/>
     </plan_class>
     <plan_class>
