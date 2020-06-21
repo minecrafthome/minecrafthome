@@ -117,7 +117,7 @@
             <cmd>file_deleter -d 3</cmd>
         </daemon>
         <daemon>
-            <cmd>sample_substr_validator --app kaktwoos --min_wu_id 5768 --stderr_string "Finished work unit"</cmd>
+            <cmd>sample_substr_validator --app kaktwoos --stderr_string "Done"</cmd>
             <pid_file>kaktwoos</pid_file>
             <output>kaktwoos</output>
         </daemon>
