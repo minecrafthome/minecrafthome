@@ -74,7 +74,7 @@ define('GFX_CPU_PREFS', false);
     // user can limit % CPU used by screensaver
     // (lower frame rate if exceeded)
     // This is probably irrelevant if your screensaver uses OpenGL
-define('APP_SELECT_PREFS', false);
+define('APP_SELECT_PREFS', true);
     // user can choose which apps to run
 define('NON_GRAPHICAL_PREF', false);
     // user can choose to run faster non-graphical app versions if available
