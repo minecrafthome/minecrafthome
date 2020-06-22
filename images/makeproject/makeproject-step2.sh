@@ -77,7 +77,7 @@ while [ $i -lt 131072 ]; do
 done
 
 for i in {0..2817}; do while read line; do #2817 in prod
-  wu_name="kaktwoos_1.0.7_$(printf "%04d\n" $i)_$(echo $line | cut -d' ' -f1)"
+  wu_name="kaktwoos_1.0.7_$(printf "%04d\n" $i)_$(echo $line | cut -d' ' -f2)"
   echo "create_work: ${wu_name}"
   bin/create_work --appname kaktwoos \
     --wu_template templates/seeds_in \
