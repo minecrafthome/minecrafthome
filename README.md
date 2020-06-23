@@ -1,7 +1,15 @@
 ![](https://raw.githubusercontent.com/minecrafthome/branding/master/social/github-readme.png)
 
-The Minecraft@Home server
-=========================
+Minecraft@Home BOINC
+====================
+
+## Volunteer your compute resources
+
+You can volunteer your compute resources to help with our research, BOINC will use your computer when you're not to run applications which further our research.
+
+[Click here to join!](https://minecraftathome.com/minecrafthome/signup.php)
+
+## Development
 
 The [Minecraft@Home](https://minecraftathome.com) server is a set of [Docker](https://docker.com) containers which together create a [BOINC](https://boinc.berkeley.edu/) environment to allow the public to volunteer compute resources for use with Minecraft research projects.
 
