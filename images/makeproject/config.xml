@@ -80,7 +80,7 @@
         <task>
             <cmd>run_in_ops ./team_import.php</cmd>
             <period>24 hours</period>
-            <disabled>1</disabled>
+            <disabled>0</disabled>
             <output>team_import.out</output>
         </task>
         <task>
