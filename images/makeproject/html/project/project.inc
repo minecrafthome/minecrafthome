@@ -25,6 +25,15 @@ define("PROFILE_PATH", "../user_profile/");
 define("PROFILE_URL", "user_profile/");
 define("LANGUAGE_FILE", "languages.txt");
 
+define('SHORTCUT_ICON', '/favicon.ico');
+define("GLOBAL_HEAD_EXTRA", '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#212121">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">');
+
 //-------------- contact info
 
 define("SYS_ADMIN_EMAIL", "boinc@hrznstudio.com");
@@ -114,7 +123,7 @@ function make_php_mailer() {
 //
 function project_banner($title, $prefix, $is_main) {
     if ($is_main) {
-        echo '<img class="img-responsive" style="width:100%" src="https://raw.githubusercontent.com/minecrafthome/branding/master/social/website-header.png">';
+        echo '<img class="img-responsive" style="width:100%" src="img/banner.png">';
     }
     sample_navbar(secure_url_base(), get_logged_in_user(false), false);
     if ($title) {
