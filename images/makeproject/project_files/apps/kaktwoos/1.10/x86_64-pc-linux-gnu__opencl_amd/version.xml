@@ -4,7 +4,7 @@
     <main_program/>
   </file>
   <file>
-    <physical_name>kaktwoos_1.09_opencl</physical_name>
+    <physical_name>kaktwoos_1.10_opencl</physical_name>
     <logical_name>client</logical_name>
   </file>
   <file>
@@ -12,7 +12,7 @@
     <copy_file/>
   </file>
   <file>
-    <physical_name>kaktwoos_1.09_opencl_job.xml</physical_name>
+    <physical_name>kaktwoos_1.10_opencl_linux_job.xml</physical_name>
     <logical_name>job.xml</logical_name>
   </file>
   <needs_network/>
