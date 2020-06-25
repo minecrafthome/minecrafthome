@@ -131,5 +131,10 @@
             <pid_file>panorama</pid_file>
             <output>panorama</output>
         </daemon>
+        <daemon>
+            <cmd>kaktwoos_assimilator.py -app kaktwoos -d 3</cmd>
+            <pid_file>kaktwoos_assimilator</pid_file>
+            <output>kaktwoos_assimilator</output>
+        </daemon>
     </daemons>
 </boinc>
