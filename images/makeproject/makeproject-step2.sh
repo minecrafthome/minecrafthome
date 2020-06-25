@@ -67,23 +67,23 @@ yes | bin/update_versions
 #bin/create_work --appname kaktwoos --wu_template templates/test_in --result_template templates/test_out -wu_name test_nodelete
 #bin/create_work --appname kaktwoos --wu_template templates/main_in --result_template templates/main_out -wu_name main_nodelete
 
-i=0
-while [ $i -lt 131072 ]; do
-  bin/create_work --appname panorama \
-    --wu_template templates/seeds_in \
-    --result_template templates/seeds_out \
-    --command_line "$i $((i + 512))" \
-    --wu_name "pano_1.03_$i"; i=$((i + 512))
-done
-
-for i in {0..2817}; do while read line; do #2817 in prod
-  wu_name="kaktwoos_1.0.7_$(printf "%04d\n" $i)_$(echo $line | cut -d' ' -f2)"
-  echo "create_work: ${wu_name}"
-  bin/create_work --appname kaktwoos \
-    --wu_template templates/seeds_in \
-    --result_template templates/seeds_out \
-    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 $line" \
-    --wu_name "${wu_name}"
-done <<< "$(cat seeds.txt)"; done
+#i=0
+#while [ $i -lt 131072 ]; do
+#  bin/create_work --appname panorama \
+#    --wu_template templates/seeds_in \
+#    --result_template templates/seeds_out \
+#    --command_line "$i $((i + 512))" \
+#    --wu_name "pano_1.03_$i"; i=$((i + 512))
+#done
+#
+#for i in {0..2817}; do while read line; do #2817 in prod
+#  wu_name="kaktwoos_1.0.7_$(printf "%04d\n" $i)_$(echo $line | cut -d' ' -f2)"
+#  echo "create_work: ${wu_name}"
+#  bin/create_work --appname kaktwoos \
+#    --wu_template templates/seeds_in \
+#    --result_template templates/seeds_out \
+#    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 $line" \
+#    --wu_name "${wu_name}"
+#done <<< "$(cat seeds.txt)"; done
 
 touch $PROJECT_ROOT/.built_${PROJECT}
