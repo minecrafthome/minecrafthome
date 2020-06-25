@@ -98,8 +98,8 @@ define('MAX_CPUS_PREF', false);
 // and complete the function definition based on your SMTP server
 // (not all fields may be needed)
 //
-if (0) {
 function make_php_mailer() {
+    require_once("../inc/phpmailer/PHPMailerAutoload.php");
     $mail = new PHPMailer();
     $mail->IsSMTP();
     //$mail->Mailer = 'smtp';
@@ -112,7 +112,6 @@ function make_php_mailer() {
     $mail->SetFrom('no-reply@minecraftathome.com', 'Minecraft@Home');
     $mail->From = "boinc@em9920.minecraftathome.com";
     return $mail;
-}
 }
 
 //-------------- Header and footer
