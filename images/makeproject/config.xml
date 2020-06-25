@@ -39,6 +39,7 @@
         <max_wus_to_send>8</max_wus_to_send>
         <enable_assignment>1</enable_assignment>
         <enable_assignment_multi>1</enable_assignment_multi>
+        <project_id>46</project_id>
     </config>
     <tasks>
         <task>
