@@ -40,6 +40,7 @@
         <enable_assignment>1</enable_assignment>
         <enable_assignment_multi>1</enable_assignment_multi>
         <project_id>46</project_id>
+        <next_rpc_delay>60</next_rpc_delay>
     </config>
     <tasks>
         <task>
