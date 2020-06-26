@@ -3,7 +3,7 @@ from assimilator import *
 import re
 
 re_unit = re.compile(r"--chunkseed (\d+)")
-re_result = re.compile(r"^(\d+)$", re.MULTILINE)
+re_result = re.compile(r"^(\d+)\r?$", re.MULTILINE)
 
 class KaktwoosAssimilator(Assimilator):
 	def __init__(self):
