@@ -32,7 +32,15 @@ define("GLOBAL_HEAD_EXTRA", '<link rel="apple-touch-icon" sizes="180x180" href="
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#212121">
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="theme-color" content="#ffffff">');
+<meta name="theme-color" content="#ffffff">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171049199-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "UA-171049199-1");
+</script>');
 
 //-------------- contact info
 
