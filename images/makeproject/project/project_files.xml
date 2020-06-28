@@ -1,0 +1,33 @@
+<file_info>
+    <name>stat_icon.png</name>
+    <url>https://minecraftathome.com/minecrafthome/download/stat_icon.png</url>
+    <md5_cksum>13da863f1d3336d0d1ec80c97c3553df</md5_cksum>
+</file_info>
+<file_info>
+    <name>slide_social.png</name>
+    <url>https://minecraftathome.com/minecrafthome/download/slide_social.png</url>
+    <md5_cksum>256d1769f882585d85f24ff25b2f5add</md5_cksum>
+</file_info>
+<file_info>
+    <name>slide_21cactus.png</name>
+    <url>https://minecraftathome.com/minecrafthome/download/slide_21cactus.png</url>
+    <md5_cksum>d9943b2771ffb793a9a909b5cc62dd8d</md5_cksum>
+</file_info>
+<project_files>
+    <file_ref>
+      <file_name>stat_icon.png</file_name>
+      <open_name>stat_icon</open_name>
+    </file_ref>
+    <file_ref>
+      <file_name>slide_social.png</file_name>
+      <open_name>slideshow_00</open_name>
+    </file_ref>
+    <file_ref>
+      <file_name>slide_social.png</file_name>
+      <open_name>slideshow_kaktwoos_00</open_name>
+    </file_ref>
+    <file_ref>
+      <file_name>slide_21cactus.png</file_name>
+      <open_name>slideshow_kaktwoos_01</open_name>
+    </file_ref>
+</project_files>
