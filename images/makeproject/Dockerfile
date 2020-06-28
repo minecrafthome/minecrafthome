@@ -6,7 +6,5 @@ COPY makeproject-step2.sh /usr/local/bin/
 # dont need built-in boinc2docker app
 RUN rm -rf $PROJECT_ROOT/apps/boinc2docker
 
-COPY --chown=1000 seeds.txt config.xml project.xml plan_class_spec.xml $PROJECT_ROOT/
-COPY --chown=1000 project_files $PROJECT_ROOT
-COPY --chown=1000 html/. $PROJECT_ROOT/html/
+COPY --chown=1000 project $PROJECT_ROOT
 COPY --chown=1000 secrets.env /run/secrets/
