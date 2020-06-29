@@ -51,7 +51,7 @@
         </task>
         <task>
             <cmd>db_dump -d 2 --dump_spec ../db_dump_spec.xml</cmd>
-            <period>24 hours</period>
+            <period>6 hours</period>
             <disabled>0</disabled>
             <output>db_dump.out</output>
         </task>
