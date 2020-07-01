@@ -11,7 +11,7 @@
         <min_opencl_version>200</min_opencl_version>
     </plan_class>
     <plan_class>
-        <name>opencl_intel</name>
+        <name>opencl_intel_gpu</name>
         <gpu_type>intel_gpu</gpu_type>
         <opencl/>
     </plan_class>

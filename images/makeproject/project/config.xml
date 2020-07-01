@@ -112,7 +112,7 @@
     </tasks>
     <daemons>
         <daemon>
-            <cmd>feeder -d 3</cmd>
+            <cmd>feeder --priority_order_create_time -d 3</cmd>
         </daemon>
         <daemon>
             <cmd>transitioner -d 3</cmd>
