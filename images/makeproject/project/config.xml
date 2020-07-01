@@ -19,6 +19,8 @@
         <download_dir>/home/boincadm/project/download</download_dir>
         <fuh_debug_level>3</fuh_debug_level>
         <master_url>${url_base}/${project}/</master_url>
+        <recaptcha_public_key>${recaptcha_public_key}</recaptcha_public_key>
+        <recaptcha_private_key>${recaptcha_private_key}</recaptcha_private_key>
         <host>${project}</host>
         <db_name>${project}</db_name>
         <shmem_key>0x1111930f</shmem_key>
