@@ -41,6 +41,7 @@
         <enable_assignment_multi>1</enable_assignment_multi>
         <project_id>46</project_id>
         <next_rpc_delay>3600</next_rpc_delay>
+        <no_forum_rating/>
     </config>
     <tasks>
         <task>
