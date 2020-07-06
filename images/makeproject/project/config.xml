@@ -42,6 +42,11 @@
         <project_id>46</project_id>
         <next_rpc_delay>3600</next_rpc_delay>
         <no_forum_rating/>
+        <reliable_on_priority>1</reliable_on_priority>
+        <reliable_max_avg_turnaround>14400</reliable_max_avg_turnaround>
+        <reliable_reduced_delay_bound>0.5</reliable_reduced_delay_bound>
+        <reliable_priority_on_over>1</reliable_priority_on_over>
+        <reliable_priority_on_over_except_error>1</reliable_priority_on_over_except_error>
     </config>
     <tasks>
         <task>
