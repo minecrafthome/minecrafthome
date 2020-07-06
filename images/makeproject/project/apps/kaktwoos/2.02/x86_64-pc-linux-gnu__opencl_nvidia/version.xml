@@ -1,10 +1,10 @@
 <version>
   <file>
-    <physical_name>kaktwoos_2.01_opencl_nvidia</physical_name>
+    <physical_name>kaktwoos_2.02_opencl_nvidia</physical_name>
     <main_program/>
   </file>
   <file>
-    <physical_name>kaktwoos_2.01_opencl_nvidia.cl</physical_name>
+    <physical_name>kaktwoos_2.02_opencl_nvidia.cl</physical_name>
     <logical_name>kaktwoos.cl</logical_name>
     <copy_file/>
   </file>
