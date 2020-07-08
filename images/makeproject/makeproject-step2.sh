@@ -76,14 +76,17 @@ yes | bin/update_versions
 #    --wu_name "pano_1.03_$i"; i=$((i + 512))
 #done
 #
-#for i in {0..2817}; do while read line; do #2817 in prod
-#  wu_name="kaktwoos_1.0.7_$(printf "%04d\n" $i)_$(echo $line | cut -d' ' -f2)"
+#for i in {1..176}; do while read line; do
+#  wu_name="kaktwoos_2.03_12_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
 #  echo "create_work: ${wu_name}"
 #  bin/create_work --appname kaktwoos \
 #    --wu_template templates/seeds_in \
 #    --result_template templates/seeds_out \
-#    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 $line" \
+#    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 --chunkseed $(echo $line | awk '{print $1}') --neighbor1 $(echo $line | awk '{print $2}') --neighbor2 $(echo $line | awk '{print $3}') --neighbor3 $(echo $line | awk '{print $4}') --diagonalindex $(echo $line | awk '{print $5}') --cactusheight $(echo $line | awk '{print $6}')" \
+#    --priority $(echo $line | awk '{print $7}' | sed 's/\.//g') \
+#    --min_quorum 1 \
 #    --wu_name "${wu_name}"
 #done <<< "$(cat seeds.txt)"; done
+#
 
 touch $PROJECT_ROOT/.built_${PROJECT}
