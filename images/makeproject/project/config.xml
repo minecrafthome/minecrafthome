@@ -97,7 +97,7 @@
             <output>notify.out</output>
         </task>
         <task>
-            <cmd>run_in_ops ./badge_assign.php</cmd>
+            <cmd>run_in_ops ./badge_assign_mch.php</cmd>
             <period>24 hours</period>
             <disabled>0</disabled>
             <output>badge_assign.out</output>
