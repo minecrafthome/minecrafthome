@@ -21,5 +21,7 @@
         <gpu_type>nvidia</gpu_type>
         <opencl/>
         <min_opencl_version>102</min_opencl_version>
+        <min_driver_version>38500</min_driver_version>
+
     </plan_class>
 </plan_classes>
