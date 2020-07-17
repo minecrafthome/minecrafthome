@@ -3,6 +3,7 @@
         <name>cuda</name>
         <gpu_type>nvidia</gpu_type>
         <cuda/>
+        <min_driver_version>41839</min_driver_version>
     </plan_class>
     <plan_class>
         <name>opencl_amd</name>
@@ -22,6 +23,5 @@
         <opencl/>
         <min_opencl_version>102</min_opencl_version>
         <min_driver_version>38500</min_driver_version>
-
     </plan_class>
 </plan_classes>

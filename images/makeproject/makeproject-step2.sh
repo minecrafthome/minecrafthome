@@ -67,16 +67,18 @@ yes | bin/update_versions
 #bin/create_work --appname kaktwoos --wu_template templates/test_in --result_template templates/test_out -wu_name test_nodelete
 #bin/create_work --appname kaktwoos --wu_template templates/main_in --result_template templates/main_out -wu_name main_nodelete
 
-#i=0
-#while [ $i -lt 131072 ]; do
-#  bin/create_work --appname panorama \
-#    --wu_template templates/seeds_in \
-#    --result_template templates/seeds_out \
-#    --command_line "$i $((i + 512))" \
-#    --wu_name "pano_1.03_$i"; i=$((i + 512))
+# 2^14 boinc work units, 2^12 pano work units per boinc work unit, 2^22 seeds per pano work unit = 2^48 seeds total.
+#for i in {0..16383}; do
+# wu_name="pano_2.00_4096_$i"
+# echo "create_work: ${wu_name}"
+# bin/create_work --appname panorama \
+#   --wu_template templates/seeds_in \
+#   --result_template templates/seeds_out \
+#   --command_line "$((i * 4096)) $(((i + 1) * 4096))" \
+#   --wu_name "${wu_name}"
 #done
-#
-#for i in {1..176}; do while read line; do
+
+# for i in {1..176}; do while read line; do
 #  wu_name="kaktwoos_2.03_12_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
 #  echo "create_work: ${wu_name}"
 #  bin/create_work --appname kaktwoos \
@@ -86,7 +88,7 @@ yes | bin/update_versions
 #    --priority $(echo $line | awk '{print $7}' | sed 's/\.//g') \
 #    --min_quorum 1 \
 #    --wu_name "${wu_name}"
-#done <<< "$(cat seeds.txt)"; done
-#
+# done <<< "$(cat seeds.txt)"; done
+
 
 touch $PROJECT_ROOT/.built_${PROJECT}
