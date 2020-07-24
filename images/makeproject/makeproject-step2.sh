@@ -67,6 +67,18 @@ yes | bin/update_versions
 #bin/create_work --appname kaktwoos --wu_template templates/test_in --result_template templates/test_out -wu_name test_nodelete
 #bin/create_work --appname kaktwoos --wu_template templates/main_in --result_template templates/main_out -wu_name main_nodelete
 
+#
+# 2^12 boinc work units, 2^36 seeds per kaktoos work unit = 2^48 seeds total, 600kb per result, 128,946,176 final seed count est.
+#for i in {0..4095}; do
+# wu_name="kaktoos_1.00_y62_7_$((i * 68719476736))"
+# echo "create_work: ${wu_name}"
+# bin/create_work --appname kaktoos \
+#   --wu_template templates/seeds_in \
+#   --result_template templates/seeds_out \
+#   --command_line "--start $((i * 68719476736)) --end $(((i + 1) * 68719476736))" \
+#   --wu_name "${wu_name}"
+#done
+
 # 2^14 boinc work units, 2^12 pano work units per boinc work unit, 2^22 seeds per pano work unit = 2^48 seeds total.
 #for i in {0..16383}; do
 # wu_name="pano_2.00_4096_$i"
