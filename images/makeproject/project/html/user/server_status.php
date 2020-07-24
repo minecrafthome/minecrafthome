@@ -162,8 +162,8 @@ function show_status_html($x) {
             item_html("With credit", $j->hosts_with_credit);
             item_html("With recent credit", $j->hosts_with_recent_credit);
             item_html("Registered in past 24 hours", $j->hosts_past_24_hours);
-            item_html("Recent teraFLOPS", round($j->gflops, 2));
-            item_html("Total teraFLOPS", round($j->total_flops, 2));
+            item_html("Recent TeraFLOPS", round($j->gflops, 2));
+            item_html("Total TeraFLOPS", round($j->total_flops, 2));
             end_table();
     echo "</td></tr>\n";
     end_table();
