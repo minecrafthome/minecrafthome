@@ -162,8 +162,8 @@ function show_status_html($x) {
             item_html("With credit", $j->hosts_with_credit);
             item_html("With recent credit", $j->hosts_with_recent_credit);
             item_html("Registered in past 24 hours", $j->hosts_past_24_hours);
-            item_html("Current GigaFLOPS", round($j->gflops, 2));
-            item_html("Total TeraFLOPS", round($j->total_flops, 2));
+            item_html("Recent teraFLOPS", round($j->gflops, 2));
+            item_html("Total teraFLOPS", round($j->total_flops, 2));
             end_table();
     echo "</td></tr>\n";
     end_table();
@@ -446,7 +446,7 @@ function get_job_status() {
     $s->hosts_with_credit = BoincHost::count("total_credit>1");
     $s->hosts_past_24_hours = BoincHost::count("create_time > (unix_timestamp() - 86400)");
     $s->flops = BoincUser::sum("expavg_credit")/200;
-    $s->gflops = BoincHost::sum("(p_fpops + p_gpu_fpops) / 1e9", "where rpc_time > UNIX_TIMESTAMP() - 3600");
+    $s->gflops = BoincHost::sum("(p_fpops + p_gpu_fpops) / 1e12", "where rpc_time > UNIX_TIMESTAMP() - 86400");
     $s->total_flops = BoincHost::sum("(p_fpops + p_gpu_fpops) / 1e12");
 
     $s->db_revision = null;
