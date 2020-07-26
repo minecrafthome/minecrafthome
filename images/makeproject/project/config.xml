@@ -126,7 +126,7 @@
             <cmd>file_deleter -d 3</cmd>
         </daemon>
         <daemon>
-            <cmd>sample_substr_validator --app kaktwoos --stderr_string "Done"</cmd>
+            <cmd>script_validator --app kaktwoos -d 3 --init_script kaktwoos_validator_syntax.py --compare_script kaktwoos_validator_compare.py</cmd>
             <pid_file>kaktwoos</pid_file>
             <output>kaktwoos</output>
         </daemon>
