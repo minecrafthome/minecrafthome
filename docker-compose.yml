@@ -22,13 +22,13 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
-  mysql:
-    build: 
-      context: images/mysql
-    ports:
-      - "3306:3306"
-    volumes:
-      - "mysql:/var/lib/mysql"
+        #  mysql:
+        #    build: 
+        #      context: images/mysql
+        #    ports:
+        #      - "3306:3306"
+        #    volumes:
+        #      - "mysql:/var/lib/mysql"
 
   makeproject:
     build: 

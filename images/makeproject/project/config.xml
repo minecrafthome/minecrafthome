@@ -12,7 +12,7 @@
         <uldl_dir_fanout>1024</uldl_dir_fanout>
         <disable_web_account_creation>0</disable_web_account_creation>
         <download_url>${url_base}/${project}/download</download_url>
-        <db_user>root</db_user>
+        <db_user>admin</db_user>
         <log_dir>/home/boincadm/project/log_${project}</log_dir>
         <enable_delete_account>0</enable_delete_account>
         <app_dir>/home/boincadm/project/apps</app_dir>
@@ -30,7 +30,7 @@
         <ignore_upload_certificates>1</ignore_upload_certificates>
         <db_passwd>${db_passwd}</db_passwd>
         <min_sendwork_interval>6</min_sendwork_interval>
-        <db_host>mysql</db_host>
+        <db_host>mch.c57nufbkhe51.eu-west-1.rds.amazonaws.com</db_host>
         <daily_result_quota>500</daily_result_quota>
         <one_result_per_user_per_wu/>
         <one_result_per_host_per_wu/>
@@ -135,8 +135,8 @@
             <pid_file>panorama</pid_file>
             <output>panorama</output>
         </daemon>
-        <daemon>                                                                                                                    
-            <cmd>script_validator --app kaktoos -d 3 --init_script dummy_script.py --compare_script kaktoos_validator_compare.py </cmd>           
+        <daemon>
+            <cmd>script_validator --app kaktoos -d 3 --init_script dummy_script.py --compare_script kaktoos_validator_compare.py </cmd>
             <pid_file>kaktoos</pid_file>
             <output>kaktoos</output>
         </daemon>
