@@ -24,4 +24,8 @@
         <name>panorama</name>
         <user_friendly_name>Main menu panorama seed scanning</user_friendly_name>
     </app>
+    <app>
+        <name>kaktoos</name>
+        <user_friendly_name>Singlechunk population seed cactus stacking</user_friendly_name>
+    </app>
 </boinc>

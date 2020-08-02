@@ -146,6 +146,11 @@
             <output>kaktoos_assimilator</output>
         </daemon>    
         <daemon>
+            <cmd>sample_substr_validator --app kaktoos --stderr_string "Done"</cmd>
+            <pid_file>kaktoos</pid_file>
+            <output>kaktoos</output>
+        </daemon>
+        <daemon>
             <cmd>kaktwoos_assimilator.py -app kaktwoos -d 3</cmd>
             <pid_file>kaktwoos_assimilator</pid_file>
             <output>kaktwoos_assimilator</output>

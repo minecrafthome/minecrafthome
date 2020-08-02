@@ -1,0 +1,18 @@
+# Semantic Pull Requests configuration
+# See: https://github.com/zeke/semantic-pull-requests/blob/master/README.md
+
+# ONLY validate the PR title
+titleOnly: true
+
+# A subset of types specified in commitizen/conventional-commit-types are used.
+# See: https://github.com/commitizen/conventional-commit-types/blob/v3.0.0/index.json
+types:
+  - feat
+  - fix
+  - chore
+
+# Disallow use of Merge commits (eg on github: "Merge branch 'master' into feature/ride-unicorns")
+allowMergeCommits: false
+
+# Disallow use of Revert commits (eg on github: "Revert "feat: ride unicorns"")
+allowRevertCommits: false
