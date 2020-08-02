@@ -10,7 +10,7 @@
         <file_ref>
             <file_name><OUTFILE_0/></file_name>
             <open_name>kaktseeds.txt</open_name>
-            <copy_file>1</copy_file>git
+            <copy_file>1</copy_file>
         </file_ref>
     </result>
 </output_template>
