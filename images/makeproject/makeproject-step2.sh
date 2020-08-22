@@ -10,7 +10,7 @@ cd $PROJECT_ROOT
 echo "Updating project files in data volume..."
 
 # do variable substitution in files
-for file in config.xml html/user/schedulers.txt *.httpd.conf html/project/project.inc; do 
+for file in config.xml html/user/schedulers.txt *.httpd.conf html/project/project.inc; do
     sed -i -e "s|\${PROJECT}|$PROJECT|gI" \
            -e "s|REPLACE WITH PROJECT NAME|$PROJECT|gI" \
            -e "s|\${PROJECT_ROOT}|$PROJECT_ROOT|gI" \
@@ -92,7 +92,7 @@ yes | bin/update_versions
 #done
 
 # for i in {1..176}; do while read line; do
-#  wu_name="kaktwoos_2.03_12_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
+#  wu_name="kaktwoos_2.04_y62_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
 #  echo "create_work: ${wu_name}"
 #  bin/create_work --appname kaktwoos \
 #    --wu_template templates/seeds_in \
