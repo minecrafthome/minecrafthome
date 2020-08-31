@@ -6,3 +6,5 @@
 *.dll filter=lfs diff=lfs merge=lfs -text
 *.exe filter=lfs diff=lfs merge=lfs -text
 *.bin filter=lfs diff=lfs merge=lfs -text
+images/makeproject/project/apps/packcrack/1.01/windows_x86_64__cuda/packcrack_1.01_cuda.exe filter=lfs diff=lfs merge=lfs -text
+images/makeproject/project/apps/packcrack/1.01/x86_64-pc-linux-gnu__cuda/packcrack_1.01_cuda filter=lfs diff=lfs merge=lfs -text
