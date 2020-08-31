@@ -92,7 +92,7 @@ yes | bin/update_versions
 #done
 # 2^33 seeds per boinc workunit * 2^15 boinc work units = 2^48 seeds total (PackCrack)
 #for i in {0..32767}; do
-# wu_name="packcrack_1.00_17179869184_$i"
+# wu_name="packcrack_1.01_8589934592_$i"
 # echo "create_work: ${wu_name}"
 # bin/create_work --appname packcrack \
 #   --wu_template templates/seeds_in \
