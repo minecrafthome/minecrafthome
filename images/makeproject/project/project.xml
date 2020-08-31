@@ -28,4 +28,8 @@
         <name>kaktoos</name>
         <user_friendly_name>Singlechunk population seed cactus stacking</user_friendly_name>
     </app>
+    <app>
+        <name>packcrack</name>
+        <user_friendly_name>Triple-chunk sand-based terrain filtering</user_friendly_name>
+    </app>
 </boinc>

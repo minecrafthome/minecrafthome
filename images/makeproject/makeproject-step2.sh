@@ -90,6 +90,18 @@ yes | bin/update_versions
 #   --command_line "$((i * 4096)) $(((i + 1) * 4096))" \
 #   --wu_name "${wu_name}"
 #done
+# 2^33 seeds per boinc workunit * 2^15 boinc work units = 2^48 seeds total (PackCrack)
+#for i in {0..32767}; do
+# wu_name="packcrack_1.00_17179869184_$i"
+# echo "create_work: ${wu_name}"
+# bin/create_work --appname packcrack \
+#   --wu_template templates/seeds_in \
+#   --result_template templates/pack_out \
+#   --command_line "--start $((i * 8589934592)) --count $((8589934592))" \
+#   --wu_name "${wu_name}"
+#   --min_quorum 2
+#   --priority 11000
+#done
 
 # for i in {1..176}; do while read line; do
 #  wu_name="kaktwoos_2.03_12_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
