@@ -1,5 +1,5 @@
 <workunit>
     <rsc_fpops_est>3e16</rsc_fpops_est>
-    <rsc_fpops_bound>6e16</rsc_fpops_bound>
+    <rsc_fpops_bound>6.3e16</rsc_fpops_bound>
     <delay_bound>259200</delay_bound>
 </workunit>
