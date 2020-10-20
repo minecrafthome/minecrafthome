@@ -8,7 +8,7 @@ volumes:
 
 services:
   traefik:
-    image: "traefik:2.3@sha256:3f5c5a46ccff636a9e726961f123638bd6854191040072d860fc15bbcee3e184"
+    image: "traefik:2.3@sha256:c2c7bbcab5d3590aae24218cdd592f12263747b8cbd867022574fc61909d8544"
     container_name: "traefik"
     command:
       #- "--log.level=DEBUG"
