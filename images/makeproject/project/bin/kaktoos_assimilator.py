@@ -16,7 +16,7 @@ class KaktoosAssimilator(Assimilator):
                 path = boinc_project_path.project_path("kaktoos_results")
                 input_path = self.get_file_path(canonical_result)
                 heightmatch = re_name.search(canonical_result.name)
-                height = match.group(1)
+                height = heightmatch.group(1)
                 filename = "results_" + height + ".txt"
 
                 with open(input_path) as input_file:
