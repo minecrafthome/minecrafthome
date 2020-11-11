@@ -18,12 +18,11 @@ class KaktoosAssimilator(Assimilator):
                 heightmatch = re_name.search(canonical_result.name)
                 height = heightmatch.group(1)
                 filename = "results_" + height + ".txt"
-
-                with open(input_path) as input_file:
-                    input_str = input_file.read()
-
+                input_str = ""
                 try:
-                        os.makedirs(path)
+                    with open(input_path) as input_file:
+                        input_str = input_file.read()
+                    os.makedirs(path)
                 except OSError:
                         pass
                 with open(os.path.join(path, filename), "a") as f:
