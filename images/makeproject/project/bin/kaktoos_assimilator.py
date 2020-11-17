@@ -44,20 +44,20 @@ class KaktoosAssimilator(Assimilator):
                 try:
                     with open(input_path) as input_file:
                         input_str = input_file.read()
-                except OSError as e:
-                    logCritical("Unable to open input file: %s\n", e.filename)
+                except (OSError,IOError) as e:
+                    self.logCritical("Unable to open input file: %s\n", e.filename)
 
                 try:
                     os.makedirs(path)
-                except OSError as e:
-                    logCritical("Unable to create output directory: %s\n", e.filename)
+                except (OSError,IOError) as e:
+                    self.logCritical("Unable to create output directory: %s\n", e.filename)
 
                 try:
                     with open(os.path.join(path, filename), "a") as f:
                         for match in re_result.finditer(input_str):
                             f.write("{}\n".format(match.group(1)))
-                except OSError as e:
-                    logCritical("Unable to write to output file: %s\n", e.filename)
+                except (OSError,IOError) as e:
+                    self.logCritical("Unable to write to output file: %s\n", e.filename)
 if __name__ == "__main__":
         asm = KaktoosAssimilator()
         asm.run()

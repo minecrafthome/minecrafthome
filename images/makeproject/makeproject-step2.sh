@@ -36,11 +36,11 @@ cd $PROJECT_ROOT
 
 
 # wait for MySQL server to start
-#echo "Waiting for MySQL server to start..."
-#if ! timeout -s KILL 60 mysqladmin ping -h mysql --wait &> /dev/null ; then
-#    echo "MySQL server failed to start after 60 seconds. Aborting."
-#    exit 1
-#fi
+echo "Waiting for MySQL server to start..."
+if ! timeout -s KILL 60 mysqladmin ping -h mysql --wait &> /dev/null ; then
+    echo "MySQL server failed to start after 60 seconds. Aborting."
+    exit 1
+fi
 
 
 # if we can get in the root MySQL account without password, it means this is the

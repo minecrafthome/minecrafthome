@@ -1,34 +1,40 @@
-version: "3.4"
+version: "3.3"
 
 volumes:
   mysql:
   project:
   results:
   secrets:
+  letsencrypt:
 
 services:
   traefik:
     image: "traefik:2.3@sha256:3f5c5a46ccff636a9e726961f123638bd6854191040072d860fc15bbcee3e184"
     container_name: "traefik"
     command:
-      #- "--log.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.le.acme.httpchallenge=true"
+      - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.le.acme.email=hello@chipwolf.uk"
+      - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
     ports:
-      - "80:80"
+      - "443:443"
       - "8080:8080"
     volumes:
+      - "letsencrypt:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
-        #  mysql:
-        #    build: 
-        #      context: images/mysql
-        #    ports:
-        #      - "3306:3306"
-        #    volumes:
-        #      - "mysql:/var/lib/mysql"
+  mysql:
+    build: 
+      context: images/mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql:/var/lib/mysql"
 
   makeproject:
     build: 
@@ -36,6 +42,8 @@ services:
       args:
         - BOINC_USER
         - PROJECT_ROOT
+    depends_on:
+      - mysql
     volumes:
       - "project:$PROJECT_ROOT.dst"
       - "secrets:/run/secrets"
@@ -51,8 +59,8 @@ services:
         - BOINC_USER
         - PROJECT_ROOT
     hostname: $PROJECT
-    #    depends_on:
-    #  - mysql
+    depends_on:
+      - mysql
     volumes: 
       - "project:$PROJECT_ROOT"
       - "results:/results"
@@ -62,15 +70,13 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.middlewares.home.addprefix.prefix=/minecrafthome"
-      - "traefik.http.routers.home.rule=PathPrefix(`/`)"
-      - "traefik.http.routers.home.entrypoints=web"
+      - "traefik.http.routers.home.entrypoints=websecure"
+      - "traefik.http.routers.home.rule=(PathPrefix(`/`) && Host(`minecraftathome.com`))"
       - "traefik.http.routers.home.middlewares=home@docker"
-      - "traefik.http.routers.local.rule=PathPrefix(`/minecrafthome`)"
-      - "traefik.http.routers.local.entrypoints=web"
-      - "traefik.http.middlewares.ops.addprefix.prefix=/minecrafthome_ops"
-      - "traefik.http.routers.ops.rule=PathPrefix(`/ops`)"
-      - "traefik.http.routers.ops.entrypoints=web"
-      - "traefik.http.routers.ops.middlewares=ops@docker"
+      - "traefik.http.routers.home.tls.certresolver=le"
+      - "traefik.http.routers.local.entrypoints=websecure"
+      - "traefik.http.routers.local.rule=(PathPrefix(`/minecrafthome`) && Host(`minecraftathome.com`))"
+      - "traefik.http.routers.local.tls.certresolver=le"
     tty: true
     environment:
       - URL_BASE
