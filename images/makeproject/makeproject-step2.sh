@@ -111,7 +111,7 @@ yes | bin/update_versions
 #    --result_template templates/seeds_out \
 #    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 --chunkseed $(echo $line | awk '{print $1}') --neighbor1 $(echo $line | awk '{print $2}') --neighbor2 $(echo $line | awk '{print $3}') --neighbor3 $(echo $line | awk '{print $4}') --diagonalindex $(echo $line | awk '{print $5}') --cactusheight $(echo $line | awk '{print $6}') --floorlevel $(echo $line | awk '{print $10}')" \
 #    --priority $(echo $line | awk '{print $7}' | sed 's/\.//g') \
-#    --min_quorum 1 \
+#    --min_quorum 2 \
 #    --wu_name "${wu_name}"
 # done <<< "$(cat ./seeds/seeds_y64.txt)"; done
 
