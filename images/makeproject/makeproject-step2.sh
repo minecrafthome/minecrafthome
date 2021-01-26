@@ -113,6 +113,6 @@ yes | bin/update_versions
 #    --priority $(echo $line | awk '{print $7}' | sed 's/\.//g') \
 #    --min_quorum 2 \
 #    --wu_name "${wu_name}"
-# done <<< "$(cat ./seeds/seeds_y64.txt)"; done
+# done <<< "$(cat ./kaktwoos_seeds/seeds_y64.txt)"; done
 
 touch $PROJECT_ROOT/.built_${PROJECT}
