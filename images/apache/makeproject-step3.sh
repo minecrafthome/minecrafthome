@@ -17,15 +17,16 @@ do
     while [ ! -f .built_${PROJECT} ] ; do sleep 1; done
 
     echo "Finalizing project startup..."
-	
-	# add a new url since the python script doesnt allow custom url except with the awful cgi-bin
+
+    # add a new url since the python script doesnt allow custom url except with the awful cgi-bin
     # https://github.com/BOINC/boinc/blob/master/tools/make_project#L351
-    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Alias /minecrafthome/beta /home/boincadm/project/html/new\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
-    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/projects.html" "/minecrafthome/beta/projects.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
-    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/projects" "/minecrafthome/beta/projects.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
-    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/herobrine.html" "/minecrafthome/beta/herobrine.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
-    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/herobrine" "/minecrafthome/beta/herobrine.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
-	
+    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Alias /minecrafthome/projects /home/boincadm/project/html/new\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
+    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Alias /projects /home/boincadm/project/html/new\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
+    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/projects.html" "/projects/list.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
+    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/all" "/projects/list.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
+    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/herobrine.html" "/projects/herobrine.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
+    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/herobrine" "/projects/herobrine.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
+
     ln -sf ${PROJECT_ROOT}/${PROJECT}.httpd.conf /etc/apache2/sites-enabled/
 
     # if apache already booted up, restart it so as to reread the httpd.conf
