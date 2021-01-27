@@ -104,16 +104,15 @@ yes | bin/update_versions
 #done
 
 # for i in {1..176}; do while read line; do
-#  wu_name="kaktwoos_2.04_y62_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
+#  wu_name="kaktwoos_2.10_y$(echo $line | awk '{print $10}')_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
 #  echo "create_work: ${wu_name}"
 #  bin/create_work --appname kaktwoos \
 #    --wu_template templates/seeds_in \
 #    --result_template templates/seeds_out \
-#    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 --chunkseed $(echo $line | awk '{print $1}') --neighbor1 $(echo $line | awk '{print $2}') --neighbor2 $(echo $line | awk '{print $3}') --neighbor3 $(echo $line | awk '{print $4}') --diagonalindex $(echo $line | awk '{print $5}') --cactusheight $(echo $line | awk '{print $6}')" \
+#    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 --chunkseed $(echo $line | awk '{print $1}') --neighbor1 $(echo $line | awk '{print $2}') --neighbor2 $(echo $line | awk '{print $3}') --neighbor3 $(echo $line | awk '{print $4}') --diagonalindex $(echo $line | awk '{print $5}') --cactusheight $(echo $line | awk '{print $6}') --floorlevel $(echo $line | awk '{print $10}')" \
 #    --priority $(echo $line | awk '{print $7}' | sed 's/\.//g') \
-#    --min_quorum 1 \
+#    --min_quorum 2 \
 #    --wu_name "${wu_name}"
-# done <<< "$(cat seeds.txt)"; done
-
+# done <<< "$(cat ./kaktwoos_seeds/seeds_y64.txt)"; done
 
 touch $PROJECT_ROOT/.built_${PROJECT}
