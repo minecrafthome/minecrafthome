@@ -5,5 +5,6 @@ COPY --chown=1000 makeproject-step3.sh /usr/bin
 # Install additional dependencies
 RUN apt-get update && apt-get install -y \
     python-mysqldb \
+	tree \
  && rm -rf /var/lib/apt/lists/* \
  && apt-get clean
