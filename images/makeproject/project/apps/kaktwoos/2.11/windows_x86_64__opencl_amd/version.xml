@@ -1,10 +1,10 @@
 <version>
   <file>
-    <physical_name>kaktwoos_2.10_opencl_amd.exe</physical_name>
+    <physical_name>kaktwoos_2.11_opencl_amd.exe</physical_name>
     <main_program/>
   </file>
   <file>
-    <physical_name>kaktwoos_2.10_opencl_amd.cl</physical_name>
+    <physical_name>kaktwoos_2.11_opencl_amd.cl</physical_name>
     <logical_name>kaktwoos.cl</logical_name>
     <copy_file/>
   </file>
