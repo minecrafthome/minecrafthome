@@ -18,8 +18,8 @@ file_2 = database.Results.find(id=result_2)[0]
 print("{}".format(file_1))
 print("{}".format(file_2))
 # Strip the files of unneeded information (checkpoints, workunit) by extracting seed
-seeds_1 = re.findall("Found seed: ([\s\S](:?\n|\r\n))\n", file_1.stderr_out)
-seeds_2 = re.findall("Found seed: ([\s\S](:?\n|\r\n))\n", file_2.stderr_out)
+seeds_1 = re.findall("Found seed: ([\s\S]*?)(:?\n|\r\n)", file_1.stderr_out)
+seeds_2 = re.findall("Found seed: ([\s\S]*?)(:?\n|\r\n)", file_2.stderr_out)
 
 # Remove duplicates (checkpoints can cause these) and sort the lists
 seeds_1 = sorted(list(set(seeds_1)))

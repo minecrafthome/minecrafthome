@@ -42,7 +42,7 @@ kernel void crack(global int *data, global ulong* answer)
 			}
 			continue;
 		}
-
+#pragma unroll (2)
 		for (short a = 0; a < 10; a++) {
 			posX = initialPosX + next(&seed, 3) - next(&seed, 3);
 			posY = initialPosY + next(&seed, 2) - next(&seed, 2);
@@ -72,7 +72,7 @@ kernel void crack(global int *data, global ulong* answer)
 				continue;
 
 			short offset = 1 + nextIntUnknown(&seed, nextInt(&seed, 3) + 1);
-
+#pragma unroll (4)
 			for (uchar j = posY; j < posY + offset; j++) {
 				if (posY < 0 ||
 					j >  heightMap[posMap] + 1  ||
