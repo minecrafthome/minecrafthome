@@ -1,8 +1,6 @@
 int nextInt(ulong* seed, short bound);
 int next(ulong* seed, short bits);
 int nextIntUnknown(ulong* seed, short bound);
-unsigned char extract(const unsigned int heightMap[], int id);
-void increase(unsigned int heightMap[], int id, int val);
 
 #define WANTED_CACTUS_HEIGHT 22
 kernel void crack(global int *data, global ulong* answer)
@@ -13,32 +11,31 @@ kernel void crack(global int *data, global ulong* answer)
 	short position = -1;
 	short posMap;
 	short posX, posY, posZ;
-	short initialPosX, initialPosY, initialPosZ, initialPos;
-	short top = data[7];
+	short initialPosX, initialPosY, initialPosZ;
+	uchar top = data[7] + FLOOR_LEVEL;
 
-	uint heightMap[205];
+	uchar heightMap[1024];
 
-	for (short i = 0; i < 205; i++) {
-		heightMap[i] = 0;
+	for (short i = 0; i < 1024; i++) {
+		heightMap[i] = FLOOR_LEVEL;
 	}
 
 	for (short i = 0; i < 10; i++) {
-		if (WANTED_CACTUS_HEIGHT - top > 9 * (10 - i)) {
+		if (WANTED_CACTUS_HEIGHT - top > 9 * (10 - i) + FLOOR_LEVEL)
 			return;
-		}
 
 		initialPosX = next(&seed, 4) + 8;
 		initialPosZ = next(&seed, 4) + 8;
-		initialPos = initialPosX + initialPosZ * 32;
 
-		short terrainHeight = (extract(heightMap, initialPos) + FLOOR_LEVEL + 1) * 2;
+		short terrainHeight = heightMap[initialPosX + initialPosZ * 32] * 2 + 2;
 		initialPosY = nextIntUnknown(&seed, terrainHeight);
 
 		if (initialPosY + 3 <= FLOOR_LEVEL && initialPosY - 3 >= 0) {
 			seed = (seed * 256682821044977UL + 233843537749372UL) & ((1UL << 48) - 1);
 			continue;
 		}
-		if (initialPosY - 3 > top + FLOOR_LEVEL + 1) {
+		
+		if (initialPosY - 3 > top + 1) {
 			for (int j = 0; j < 10; j++) {
 				seed = (seed * 76790647859193UL + 25707281917278UL) & ((1UL << 48) - 1);
 				nextIntUnknown(&seed, nextInt(&seed, 3) + 1);
@@ -64,40 +61,36 @@ kernel void crack(global int *data, global ulong* answer)
 				if (position != -1) {
 					int bit = (int)((originalSeed >> 4) & 1);
 
-					if (data[6] != position) {
-						if (bit == data[9]) return;
-					} else {
-						if (bit != data[9]) return;
-					}
+					if ((data[6] == position) ^ (bit == data[9]))
+						return;
 
-					increase(heightMap, posMap, data[7]);
-					top = data[7];
+					heightMap[posMap] += data[7];
 				}
 			}
 
-			if (posY <= extract(heightMap, posMap) + FLOOR_LEVEL) continue;
+			if (posY <= heightMap[posMap])
+				continue;
 
 			short offset = 1 + nextIntUnknown(&seed, nextInt(&seed, 3) + 1);
 
-			for (short j = 0; j < offset; j++) {
-				if ((posY + j - 1) > extract(heightMap, posX + posZ * 32) + FLOOR_LEVEL || posY < 0) continue;
-				if ((posY + j) <= extract(heightMap, (posX + 1) + posZ * 32) + FLOOR_LEVEL) continue;
-				if ((posY + j) <= extract(heightMap, (posX - 1) + posZ * 32) + FLOOR_LEVEL) continue;
-				if ((posY + j) <= extract(heightMap, posX + (posZ + 1) * 32) + FLOOR_LEVEL) continue;
-				if ((posY + j) <= extract(heightMap, posX + (posZ - 1) * 32) + FLOOR_LEVEL) continue;
-
-				increase(heightMap, posMap, 1);
-
-				if (top < extract(heightMap, posMap)) {
-					top = extract(heightMap, posMap);
-				}
+			for (uchar j = posY; j < posY + offset; j++) {
+				if (posY < 0 ||
+					j >  heightMap[posMap] + 1  ||
+					j <= heightMap[posMap + 1 ] ||
+					j <= heightMap[posMap - 1 ] ||
+					j <= heightMap[posMap + 32] ||
+					j <= heightMap[posMap - 32])
+					continue;
+				
+				heightMap[posMap]++;
 			}
+			top = max(top, heightMap[posMap]);
 		}
 
 	}
-	if (top >= WANTED_CACTUS_HEIGHT) {
+	if (top - FLOOR_LEVEL >= WANTED_CACTUS_HEIGHT) {
 		answer[atomic_add(&data[2], 1)] =
-				((ulong)top) << 58UL |
+				((ulong)top - FLOOR_LEVEL) << 58UL |
 				(((ulong)data[position + 3]) << 48UL) |
 				originalSeed;
 	}
@@ -134,14 +127,4 @@ int nextIntUnknown(ulong* seed, short bound)
 		value = bits % bound;
 	} while(bits - value + (bound - 1) < 0);
 	return value;
-}
-
-unsigned char extract(const unsigned int heightMap[], int id)
-{
-	return (heightMap[id / 5] >> ((id % 5) * 6)) & 0b111111U;
-}
-
-void increase(unsigned int heightMap[], int id, int val)
-{
-	heightMap[id / 5] += val << ((id % 5) * 6);
 }
