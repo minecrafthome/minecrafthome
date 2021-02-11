@@ -69,16 +69,19 @@ yes | bin/update_versions
 
 #
 # 2^12 boinc work units, 2^36 seeds per kaktoos work unit = 2^48 seeds total, 600kb per result, 128,946,176 final seed count est.
-#for i in {0..4095}; do
-# wu_name="kaktoos_y64_7_$((i * 68719476736))"
-# echo "create_work: ${wu_name}"
-# bin/create_work --appname kaktoos \
+#for j in {101..101}; do
+# for i in {0..4095}; do
+#  wu_name="kaktoos_y${j}_7_$((i * 68719476736))"
+#  echo "create_work: ${wu_name}"
+#  bin/create_work --appname kaktoos \
 #   --wu_template templates/seeds_in \
 #   --result_template templates/kaktoos_out \
-#   --command_line "--start $((i * 68719476736)) --end $(((i + 1) * 68719476736)) --height 64" \
+#   --command_line "--start $((i * 68719476736)) --end $(((i + 1) * 68719476736)) --height ${j}" \
 #   --wu_name "${wu_name}" \
 #   --priority 10000
+# done
 #done
+
 
 # 2^14 boinc work units, 2^12 pano work units per boinc work unit, 2^22 seeds per pano work unit = 2^48 seeds total.
 #for i in {0..16383}; do

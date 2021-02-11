@@ -29,6 +29,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   mysql:
+    container_name: "mcath_mysql"
     build: 
       context: images/mysql
     ports:
@@ -37,6 +38,7 @@ services:
       - "mysql:/var/lib/mysql"
 
   makeproject:
+    container_name: "mcath_mkproject"
     build: 
       context: images/makeproject
       args:
@@ -53,6 +55,7 @@ services:
       - PROJECT
 
   apache:
+    container_name: "mcath_boinc"
     build: 
       context: images/apache
       args:
