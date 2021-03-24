@@ -36,11 +36,11 @@ cd $PROJECT_ROOT
 
 
 # wait for MySQL server to start
-#echo "Waiting for MySQL server to start..."
-#if ! timeout -s KILL 60 mysqladmin ping -h mysql --wait &> /dev/null ; then
-#    echo "MySQL server failed to start after 60 seconds. Aborting."
-#    exit 1
-#fi
+echo "Waiting for MySQL server to start..."
+if ! timeout -s KILL 60 mysqladmin ping -h mysql --wait &> /dev/null ; then
+    echo "MySQL server failed to start after 60 seconds. Aborting."
+    exit 1
+fi
 
 
 # if we can get in the root MySQL account without password, it means this is the
@@ -69,16 +69,19 @@ yes | bin/update_versions
 
 #
 # 2^12 boinc work units, 2^36 seeds per kaktoos work unit = 2^48 seeds total, 600kb per result, 128,946,176 final seed count est.
-#for i in {0..4095}; do
-# wu_name="kaktoos_y62_7_$((i * 68719476736))"
-# echo "create_work: ${wu_name}"
-# bin/create_work --appname kaktoos \
+#for j in {101..101}; do
+# for i in {0..4095}; do
+#  wu_name="kaktoos_y${j}_7_$((i * 68719476736))"
+#  echo "create_work: ${wu_name}"
+#  bin/create_work --appname kaktoos \
 #   --wu_template templates/seeds_in \
 #   --result_template templates/kaktoos_out \
-#   --command_line "--start $((i * 68719476736)) --end $(((i + 1) * 68719476736))" \
+#   --command_line "--start $((i * 68719476736)) --end $(((i + 1) * 68719476736)) --height ${j}" \
 #   --wu_name "${wu_name}" \
 #   --priority 10000
+# done
 #done
+
 
 # 2^14 boinc work units, 2^12 pano work units per boinc work unit, 2^22 seeds per pano work unit = 2^48 seeds total.
 #for i in {0..16383}; do
@@ -97,23 +100,22 @@ yes | bin/update_versions
 # bin/create_work --appname packcrack \
 #   --wu_template templates/seeds_in \
 #   --result_template templates/pack_out \
-#   --command_line "--start $((i * 8589934592)) --count $((8589934592))" \
+#   --command_line "--start $((i *  8589934592)) --count $((8589934592))" \
 #   --wu_name "${wu_name}"
 #   --min_quorum 2
 #   --priority 11000
 #done
 
 # for i in {1..176}; do while read line; do
-#  wu_name="kaktwoos_2.04_y62_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
+#  wu_name="kaktwoos_2.10_y$(echo $line | awk '{print $10}')_$(printf "%04d\n" $i)_$(echo $line | awk '{print $1}')"
 #  echo "create_work: ${wu_name}"
 #  bin/create_work --appname kaktwoos \
 #    --wu_template templates/seeds_in \
 #    --result_template templates/seeds_out \
-#    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 --chunkseed $(echo $line | awk '{print $1}') --neighbor1 $(echo $line | awk '{print $2}') --neighbor2 $(echo $line | awk '{print $3}') --neighbor3 $(echo $line | awk '{print $4}') --diagonalindex $(echo $line | awk '{print $5}') --cactusheight $(echo $line | awk '{print $6}')" \
+#    --command_line "--start ${i}00000000000 --end $((i + 1))00000000000 --chunkseed $(echo $line | awk '{print $1}') --neighbor1 $(echo $line | awk '{print $2}') --neighbor2 $(echo $line | awk '{print $3}') --neighbor3 $(echo $line | awk '{print $4}') --diagonalindex $(echo $line | awk '{print $5}') --cactusheight $(echo $line | awk '{print $6}') --floorlevel $(echo $line | awk '{print $10}')" \
 #    --priority $(echo $line | awk '{print $7}' | sed 's/\.//g') \
-#    --min_quorum 1 \
+#    --min_quorum 2 \
 #    --wu_name "${wu_name}"
-# done <<< "$(cat seeds.txt)"; done
-
+# done <<< "$(cat ./kaktwoos_seeds/seeds_y64.txt)"; done
 
 touch $PROJECT_ROOT/.built_${PROJECT}

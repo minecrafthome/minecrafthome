@@ -30,7 +30,7 @@
         <ignore_upload_certificates>1</ignore_upload_certificates>
         <db_passwd>${db_passwd}</db_passwd>
         <min_sendwork_interval>6</min_sendwork_interval>
-        <db_host>mch.c57nufbkhe51.eu-west-1.rds.amazonaws.com</db_host>
+        <db_host>mysql</db_host>
         <daily_result_quota>500</daily_result_quota>
         <one_result_per_user_per_wu/>
         <one_result_per_host_per_wu/>
