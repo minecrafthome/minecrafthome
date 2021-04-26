@@ -9,7 +9,7 @@ volumes:
 
 services:
   traefik:
-    image: "traefik:2.3@sha256:3f5c5a46ccff636a9e726961f123638bd6854191040072d860fc15bbcee3e184"
+    image: "traefik:v2.4@sha256:08d8a7759f5fffa2441488151cedcd4d556c1f124c097f929f469c1f7b82c16f"
     container_name: "traefik"
     command:
       - "--api.insecure=true"
