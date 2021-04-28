@@ -45,6 +45,8 @@
         <!--<reliable_on_priority>10000</reliable_on_priority>
         <reliable_max_avg_turnaround>14400</reliable_max_avg_turnaround>
         <reliable_reduced_delay_bound>0.5</reliable_reduced_delay_bound>-->
+        <recaptcha_public_key>${RECAPTCHA_PUBLIC_KEY}</recaptcha_public_key>
+        <recaptcha_private_key>${RECAPTCHA_PRIVATE_KEY}</recaptcha_private_key>
         <reliable_priority_on_over>15000</reliable_priority_on_over>
     </config>
     <tasks>
