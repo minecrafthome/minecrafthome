@@ -26,7 +26,9 @@ do
     perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/all" "/projects/list.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
     perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/herobrine.html" "/projects/herobrine.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
     perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/herobrine" "/projects/herobrine.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
-
+    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/markiplier" "/projects/markiplier.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
+    perl -i -p0e 's#Alias /minecrafthome /home/boincadm/project/html/user#Redirect "/minecrafthome/markiplier.html" "/projects/markiplier.html"\n    Alias /minecrafthome /home/boincadm/project/html/user#s' minecrafthome.httpd.conf
+  
     ln -sf ${PROJECT_ROOT}/${PROJECT}.httpd.conf /etc/apache2/sites-enabled/
 
     # if apache already booted up, restart it so as to reread the httpd.conf
