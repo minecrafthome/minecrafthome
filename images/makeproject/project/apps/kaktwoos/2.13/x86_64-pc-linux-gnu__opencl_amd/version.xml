@@ -1,0 +1,16 @@
+<version>
+  <file>
+    <physical_name>kaktwoos_2.13_opencl_amd.bin</physical_name>
+    <main_program/>
+  </file>
+  <file>
+    <physical_name>kaktwoos_2.13_opencl_amd.cl</physical_name>
+    <logical_name>kaktwoos-amd.cl</logical_name>
+    <copy_file/>
+  </file>
+  <file>
+    <physical_name>kaktwoos_2.13_opencl_amd_navi.cl</physical_name>
+    <logical_name>kaktwoos.cl</logical_name>
+    <copy_file/>
+  </file>
+</version>
