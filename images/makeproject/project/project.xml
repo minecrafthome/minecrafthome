@@ -13,6 +13,10 @@
         <user_friendly_name>Intel 64-bit Mac OS 10.5 or later</user_friendly_name>
     </platform>
     <platform>
+        <name>aarch64-unknown-linux-gnu</name>
+        <user_friendly_name>Linux running on an aarch64 CPU</user_friendly_name>
+    </platform>
+    <platform>
         <name>anonymous</name>
         <user_friendly_name>anonymous</user_friendly_name>
     </platform>
@@ -31,5 +35,9 @@
     <app>
         <name>packcrack</name>
         <user_friendly_name>Triple-chunk sand-based terrain filtering</user_friendly_name>
+    </app>
+    <app>
+        <name>onechunk</name>
+        <user_friendly_name>SSG/One-Chunk/One-Block 1.7/1.8</user_friendly_name>
     </app>
 </boinc>
