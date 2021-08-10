@@ -20,8 +20,9 @@ The requirements for running the server are:
 * [docker-compose](https://docs.docker.com/compose/install/)
 
 To download, build, and start the server:
-```Change config.xml 'dbuser' property to your MySQL/MariaDB default user (usually root).
-Change docker-compose.yml and .env to use your domain and certificate.```
+
+Change config.xml 'dbuser' property to your MySQL/MariaDB default user (usually root).
+Change docker-compose.yml and .env to use your domain and certificate.
 
 ```bash
 git clone --recursive https://github.com/minecrafthome/minecrafthome.git
