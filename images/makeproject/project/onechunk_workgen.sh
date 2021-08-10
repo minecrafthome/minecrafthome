@@ -1,6 +1,6 @@
 #!/bin/bash
 IFS=' '
-filename='md5hashes.txt'
+filename='tasks.txt'
 
 while read line; do
     read -a strarr <<< "$line"
