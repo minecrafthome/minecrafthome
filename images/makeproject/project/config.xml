@@ -12,7 +12,7 @@
         <uldl_dir_fanout>1024</uldl_dir_fanout>
         <disable_web_account_creation>0</disable_web_account_creation>
         <download_url>${url_base}/${project}/download</download_url>
-        <db_user>root</db_user>
+        <db_user>admin</db_user>
         <log_dir>/home/boincadm/project/log_${project}</log_dir>
         <enable_delete_account>0</enable_delete_account>
         <app_dir>/home/boincadm/project/apps</app_dir>
