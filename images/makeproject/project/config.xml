@@ -168,7 +168,7 @@
             <output>packcrack</output>
         </daemon>
         <daemon>
-            <cmd>script_validator --app onechunk -d 3 --init_script dummy_script.py --compare_script kaktoos_validator_compare.py </cmd>
+            <cmd>script_validator --app onechunk -d 3 --init_script dummy_script.py --compare_script onechunk_validator.py </cmd>
             <pid_file>onechunk</pid_file>
             <output>onechunk</output>
         </daemon>
