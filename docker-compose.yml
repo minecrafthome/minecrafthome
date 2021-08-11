@@ -6,13 +6,20 @@ volumes:
   results:
   secrets:
   letsencrypt:
+networks:
+   proxy:
+     external: true
+     name: minecrafthome_proxy
 
 services:
   traefik:
     image: "traefik:2.3@sha256:3f5c5a46ccff636a9e726961f123638bd6854191040072d860fc15bbcee3e184"
     container_name: "traefik"
     command:
+      - "--providers.docker.network=overlay-network-internal"
       - "--api.insecure=true"
+#      - "--api.debug=true"
+#      - "--api.dashboard=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
@@ -21,6 +28,12 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
       - "--certificatesresolvers.le.acme.email=hello@chipwolf.uk"
       - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
+    #    labels:
+#      - "traefik.http.routers.dashboard.rule=Host(`minecraftathome.com`) && (PathPre
+fix(`/api`) || PathPrefix(`/dashboard`))"
+#      - "traefik.http.routers.dashboard.service=api@internal"
+#      - "traefik.http.routers.dashboard.middlewares=auth"
+#      - "traefik.http.middlewares.auth.basicauth.users=user:$$2y$$05$$51c0BJogieEMaCl1pUDYauTNU.aBoAiuuf3ZA8xqla3W7pk6vGGTa"
     ports:
       - "443:443"
       - "8080:8080"
@@ -84,3 +97,7 @@ services:
     environment:
       - URL_BASE
       - PROJECT
+    networks:
+      - proxy
+      - default
+
