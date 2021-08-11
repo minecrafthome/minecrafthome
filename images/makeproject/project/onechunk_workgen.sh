@@ -1,6 +1,6 @@
 #!/bin/bash
 IFS=' '
-filename='tasks.txt'
+filename='onechunk_tasks.txt'
 
 while read line; do
     read -a strarr <<< "$line"
