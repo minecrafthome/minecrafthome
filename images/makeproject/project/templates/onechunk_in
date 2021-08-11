@@ -8,6 +8,6 @@
         </file_ref>
         <rsc_fpops_est>2.8e13</rsc_fpops_est>
         <rsc_fpops_bound>2.8e20</rsc_fpops_bound>
-        <delay_bound>259200</delay_bound>
+        <delay_bound>1209600</delay_bound>
     </workunit>
 </input_template>

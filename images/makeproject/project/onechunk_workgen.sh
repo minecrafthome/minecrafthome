@@ -12,5 +12,5 @@ while read line; do
         --priority 12000 \
         --min_quorum 2 \
         --credit 2500 \
-        --delay_bound 259200
+        --delay_bound 1209600
 done < $filename
