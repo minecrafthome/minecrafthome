@@ -100,4 +100,3 @@ fix(`/api`) || PathPrefix(`/dashboard`))"
     networks:
       - proxy
       - default
-
