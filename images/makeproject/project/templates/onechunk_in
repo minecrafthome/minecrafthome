@@ -1,0 +1,13 @@
+<input_template>
+    <file_info>
+    </file_info>
+    <workunit>
+        <file_ref>
+            <open_name>jf_MD5</open_name>
+            <copy_file/>
+        </file_ref>
+        <rsc_fpops_est>2.8e13</rsc_fpops_est>
+        <rsc_fpops_bound>2.8e20</rsc_fpops_bound>
+        <delay_bound>1209600</delay_bound>
+    </workunit>
+</input_template>

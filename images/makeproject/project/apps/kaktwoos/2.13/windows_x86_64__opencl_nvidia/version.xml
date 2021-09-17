@@ -1,0 +1,16 @@
+<version>
+  <file>
+    <physical_name>kaktwoos_2.13_opencl_nvidia.exe</physical_name>
+    <main_program/>
+  </file>
+  <file>
+    <physical_name>kaktwoos_2.13_opencl_rtx.cl</physical_name>
+    <logical_name>kaktwoos-nv.cl</logical_name>
+    <copy_file/>
+  </file>
+  <file>
+    <physical_name>kaktwoos_2.13_opencl_nvidia.cl</physical_name>
+    <logical_name>kaktwoos.cl</logical_name>
+    <copy_file/>
+  </file>
+</version>
