@@ -40,4 +40,8 @@
         <name>onechunk</name>
         <user_friendly_name>SSG/One-Chunk/One-Block 1.7/1.8</user_friendly_name>
     </app>
+    <app>
+        <name>trailertcrack</name>
+        <user_friendly_name>Trailer Thumbnail 2 Cracker</user_friendly_name>
+    </app>
 </boinc>
