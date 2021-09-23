@@ -124,9 +124,10 @@ yes | bin/update_versions
 #  echo "create_work: ${wu_name}"
 #  bin/create_work --appname trailertcrack \
 #    --wu_template templates/seeds_in \
-#    --result_template templates/seeds_out \
+#    --result_template templates/trailertcrack_out \
 #    --command_line "--task ${i}" \
 #    --wu_name "${wu_name}"
+#    --min_quorum 2
 # done
 
 touch $PROJECT_ROOT/.built_${PROJECT}
