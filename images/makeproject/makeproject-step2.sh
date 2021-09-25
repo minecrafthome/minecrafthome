@@ -126,7 +126,7 @@ yes | bin/update_versions
 #    --wu_template templates/seeds_in \
 #    --result_template templates/trailertcrack_out \
 #    --command_line "--task ${i}" \
-#    --wu_name "${wu_name}"
+#    --wu_name "${wu_name}" \
 #    --min_quorum 2
 # done
 
