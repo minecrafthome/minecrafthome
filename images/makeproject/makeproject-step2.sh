@@ -118,4 +118,16 @@ yes | bin/update_versions
 #    --wu_name "${wu_name}"
 # done <<< "$(cat ./kaktwoos_seeds/seeds_y64.txt)"; done
 
+# 2^30 seeds per task * 2^18 tasks = 2^48 seeds total
+# for i in {0..262144}; do
+#  wu_name="trailertcrack_1.00_$i"
+#  echo "create_work: ${wu_name}"
+#  bin/create_work --appname trailertcrack \
+#    --wu_template templates/seeds_in \
+#    --result_template templates/trailertcrack_out \
+#    --command_line "--task ${i}" \
+#    --wu_name "${wu_name}" \
+#    --min_quorum 2
+# done
+
 touch $PROJECT_ROOT/.built_${PROJECT}
