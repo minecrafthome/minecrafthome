@@ -29,8 +29,7 @@ services:
       - "--certificatesresolvers.le.acme.email=hello@chipwolf.uk"
       - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
     #    labels:
-#      - "traefik.http.routers.dashboard.rule=Host(`minecraftathome.com`) && (PathPre
-fix(`/api`) || PathPrefix(`/dashboard`))"
+#      - "traefik.http.routers.dashboard.rule=Host(`minecraftathome.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
 #      - "traefik.http.routers.dashboard.service=api@internal"
 #      - "traefik.http.routers.dashboard.middlewares=auth"
 #      - "traefik.http.middlewares.auth.basicauth.users=user:$$2y$$05$$51c0BJogieEMaCl1pUDYauTNU.aBoAiuuf3ZA8xqla3W7pk6vGGTa"
