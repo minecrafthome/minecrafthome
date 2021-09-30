@@ -76,7 +76,7 @@
         </task>
         <task>
             <cmd>update_stats</cmd>
-            <period>1 days</period>
+            <period>1 hour</period>
             <disabled>0</disabled>
             <output>update_stats.out</output>
         </task>
@@ -151,7 +151,7 @@
             <cmd>kaktoos_assimilator.py -app kaktoos -d 3</cmd>
             <pid_file>kaktoos_assimilator</pid_file>
             <output>kaktoos_assimilator</output>
-        </daemon>    
+        </daemon>
         <daemon>
             <cmd>kaktwoos_assimilator.py -app kaktwoos -d 3</cmd>
             <pid_file>kaktwoos_assimilator</pid_file>
@@ -178,7 +178,7 @@
             <output>packcrack</output>
         </daemon>
         <daemon>
-            <cmd>script_validator --app onechunk -d 3 --init_script dummy_script.py --compare_script onechunk_validator.py </cmd>
+            <cmd>script_validator --app onechunk -d 3 --credit_from_wu --init_script dummy_script.py --compare_script onechunk_validator.py </cmd>
             <pid_file>onechunk</pid_file>
             <output>onechunk</output>
         </daemon>
