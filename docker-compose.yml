@@ -8,7 +8,7 @@ volumes:
   letsencrypt:
 networks:
    proxy:
-     external: true
+     external: false
      name: minecrafthome_proxy
 
 services:
