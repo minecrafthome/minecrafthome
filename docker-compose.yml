@@ -13,7 +13,7 @@ networks:
 
 services:
   traefik:
-    image: "traefik:2.3@sha256:3f5c5a46ccff636a9e726961f123638bd6854191040072d860fc15bbcee3e184"
+    image: "traefik:2.3@sha256:0aca29bb8e51aa69569b15b8b7f08328e6957cbec201dd532304b3329e5a82a9"
     container_name: "traefik"
     command:
       - "--providers.docker.network=overlay-network-internal"
