@@ -1,0 +1,7 @@
+<job_desc>
+    <task>
+        <application>client</application>
+        <multi_process/>
+        <append_cmdline_args/>
+    </task>
+</job_desc>
